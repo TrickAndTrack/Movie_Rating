@@ -19,15 +19,21 @@ import jakarta.transaction.Transactional;
 
 @Repository
 public interface MoviesRepository extends JpaRepository<Movies, String>{
-	
-	 //jpql
-	 //top 10 movie with logest runtime duration
+
+	/**
+	 *
+	 *
+	 * @return top 10 movie with logest runtime duration
+	 */
+
 	 @Query("select new com.movie.Models.longestDurationMovieDTO(m.tconst,m.primaryTitle,m.runtimeMinutes,m.genres) from Movies m order by runtimeMinutes DESC LIMIT 10")
 	 List<longestDurationMovieDTO> getLongestRuntimeMovies();
-	 
-	 
-	//sql
-	//updating the runtime minutes based on the genres
+
+	/**
+	 *
+	 * updating the runtime minutes based on the genres
+	 */
+
 	@Modifying
 	@Transactional
 	@Query(value="Update Movies set runtime_Minutes = CASE WHEN genres = 'Documentary' THEN runtime_minutes+15 WHEN genres = 'Animation' THEN runtime_minutes+30 ELSE runtime_Minutes+45 END",nativeQuery = true)

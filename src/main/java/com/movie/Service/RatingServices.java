@@ -9,7 +9,7 @@ import com.movie.Models.TopRatedMovieDTO;
 
 public interface RatingServices {
 	
-	//public List<TopRatedMovieDTO> findTopRatedMovies() throws MovieExceptions,RatingExceptions;
+	public List<TopRatedMovieDTO> findTopRatedMovies() throws MovieExceptions,RatingExceptions;
 	
 
 }
