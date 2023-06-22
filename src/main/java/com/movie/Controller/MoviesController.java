@@ -30,39 +30,53 @@ public class MoviesController {
 	
 	@Autowired
 	private MoviesRepository mrepo;
-	
-	
-	
-	//create movies
+
+	/**
+	 *
+	 * @param mv object
+	 * @return register movies Object with succesfull message
+	 */
+
 	@PostMapping("/new-movie")
 	public ResponseEntity<String> registerMovieHandler(@RequestBody Movies mv){
-		Movies movie = mServices.createMovies(mv); // getting register movies data
-		String str = movie+" : movie successfuly register "; //cancatination with succesfull message
-		return new ResponseEntity<String>(str,HttpStatus.CREATED); //returning
+		Movies movie = mServices.createMovies(mv);
+		String str = movie+" : movie successfuly register ";
+		return new ResponseEntity<String>(str,HttpStatus.CREATED);
 	}
-	
-	//find top 10 longest duratin movies
+
+	/**
+	 *
+	 * @return returning movies longest-duration-movies
+	 */
 	@GetMapping("/longest-duration-movies")
 	public ResponseEntity<List<longestDurationMovieDTO>> getTop10MoviesHandler(){
-		List<longestDurationMovieDTO> top10MoviesList = mServices.maxDurationMovies(); //getting movies
-		return new ResponseEntity<List<longestDurationMovieDTO>>(top10MoviesList,HttpStatus.OK); //returning movies
+		List<longestDurationMovieDTO> top10MoviesList = mServices.maxDurationMovies();
+		return new ResponseEntity<List<longestDurationMovieDTO>>(top10MoviesList,HttpStatus.OK);
 	}
-	
-	
-	//ipdating the runtime minutes
+
+
+	/**
+	 *
+	 * @return update-runtime-minutes
+	 * ipdating the runtime minutes
+	 */
 	@GetMapping("/update-runtime-minutes")
 	public ResponseEntity<List<Movies>> updateRuntimeHandler(){
-		mServices.getUpdatedRuntimeMovies(); //updating
-		List<Movies> mvList = mrepo.findAll(); //getting the updated data
+		mServices.getUpdatedRuntimeMovies();
+		List<Movies> mvList = mrepo.findAll();
 		
-		return new ResponseEntity<List<Movies>>(mvList,HttpStatus.OK); //returning
+		return new ResponseEntity<List<Movies>>(mvList,HttpStatus.OK);
 	}
-	
-	
+
+	/**
+	 *
+	 *
+	 * @return genre-movies-with-subtotals
+	 */
 	@GetMapping("/genre-movies-with-subtotals")
 	public ResponseEntity<List<sumVotesDTO>> getVotesHandler(){
-		List<sumVotesDTO> top10MoviesList = mServices.calculateVotes(); //getting movies
-		return new ResponseEntity<List<sumVotesDTO>>(top10MoviesList,HttpStatus.OK); //returning movies
+		List<sumVotesDTO> top10MoviesList = mServices.calculateVotes();
+		return new ResponseEntity<List<sumVotesDTO>>(top10MoviesList,HttpStatus.OK);
 	}
 	
 }
