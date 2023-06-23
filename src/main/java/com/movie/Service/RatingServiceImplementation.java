@@ -16,12 +16,11 @@ public class RatingServiceImplementation implements RatingServices{
 	@Autowired
 	private RatingRepository rRepo;	
 
-	@Override
-	public List<TopRatedMovieDTO> findTopRatedMovies() throws MovieExceptions, RatingExceptions {
-		// TODO Auto-generated method stub
-		List<TopRatedMovieDTO>topRatedMoviesList = rRepo.getTopRatedMovies();
-		return topRatedMoviesList;
-	}
+//	@Override
+//	public List<TopRatedMovieDTO> findTopRatedMovies() throws MovieExceptions, RatingExceptions
+//		List<TopRatedMovieDTO>topRatedMoviesList = rRepo.getTopRatedMovies();
+//		return topRatedMoviesList;
+//	}
 
 	
 	

@@ -17,7 +17,7 @@ public interface MoviesService {
 	
 	public void getUpdatedRuntimeMovies() throws MovieExceptions,RatingExceptions;
 	
-	public List<sumVotesDTO> calculateVotes() throws MovieExceptions,RatingExceptions;
+//	public List<sumVotesDTO> calculateVotes() throws MovieExceptions,RatingExceptions;
 	
 
 }

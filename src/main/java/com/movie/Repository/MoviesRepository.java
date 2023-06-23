@@ -37,10 +37,14 @@ public interface MoviesRepository extends JpaRepository<Movies, String>{
 	@Modifying
 	@Transactional
 	@Query(value="Update Movies set runtime_Minutes = CASE WHEN genres = 'Documentary' THEN runtime_minutes+15 WHEN genres = 'Animation' THEN runtime_minutes+30 ELSE runtime_Minutes+45 END",nativeQuery = true)
-	void updateRuntimeMinutes(); 
+	void updateRuntimeMinutes();
+	/**
+	 *
+	 * Sum of All votes as per category
+	 */
 	
-	 @Query("SELECT  m.genres, m.primary_Title, SUM(r.numVotes) FROM Movies m INNER JOIN Ratings r ON m.tconst = r.tconst GROUP BY m.genres, m.primary_Title")	
-	 List<sumVotesDTO> findAllvotes();
+	//@Query("SELECT  m.genres, m.primary_Title, SUM(r.numVotes) FROM Movies m INNER JOIN Ratings r ON m.tconst = r.tconst GROUP BY m.genres, m.primary_Title")
+//	 List<sumVotesDTO> findAllvotes();
 	 
 	 
 }
