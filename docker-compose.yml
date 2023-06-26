@@ -7,7 +7,10 @@ services:
     links:
       - "db:redis"
   db:
-    image: "redis:alpine"
-    hostname: redis
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
     ports:
-      - "6379:6379"
+     - "3306:3306"
+    

@@ -15,7 +15,7 @@ import com.movie.Models.TopRatedMovieDTO;
 import com.movie.Service.RatingServices;
 
 @RestController
-@EnableCaching
+//@EnableCaching
 @RequestMapping("api/v1")
 public class RatingController {
 	

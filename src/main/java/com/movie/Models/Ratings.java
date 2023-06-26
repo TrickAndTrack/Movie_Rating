@@ -9,9 +9,6 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.redis.core.RedisHash;
-
-import java.io.Serializable;
 
 @Entity
 @Data
@@ -19,8 +16,8 @@ import java.io.Serializable;
 @Getter
 @Setter
 @NoArgsConstructor
-@RedisHash("Ratings")
-public class Ratings implements Serializable {
+
+public class Ratings {
 	
 	@Id
 	private Integer id;
